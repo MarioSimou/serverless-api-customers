@@ -133,5 +133,13 @@ functions:
 #       Description: "Description for the output"
 #       Value: "Some output value"
 
+custom:
+  webpack:
+    webpackConfig: 'webpack.config.js'
+    includeModules: false
+    packager: 'npm'
+    excludeFiles: 'src/**/*.spec.js'
+
 plugins:
   - serverless-offline
+  - serverless-webpack

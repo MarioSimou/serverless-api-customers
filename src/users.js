@@ -1,7 +1,5 @@
-'use strict';
-
 // GET /users
-module.exports.getUsers = async (event) => {
+export const getUsers = async (event) => {
   return {
     statusCode: 200,
     body: JSON.stringify({message: 'getUsers'})
@@ -9,7 +7,7 @@ module.exports.getUsers = async (event) => {
 }
 
 // GET /users/:id
-module.exports.getUser = async (event, ctx) => {
+export const getUser = async (event, ctx) => {
   const { id } = event.pathParameters
 
   if(!id){
@@ -26,7 +24,7 @@ module.exports.getUser = async (event, ctx) => {
 }
 
 // POST /users
-module.exports.postUser = async (event) => {
+export const postUser = async (event) => {
   return {
     statusCode: 200,
     body: JSON.stringify({message: 'post User'})
@@ -34,7 +32,7 @@ module.exports.postUser = async (event) => {
 }
 
 // DELETE /users/:id
-module.exports.deleteUser = async (event) => {
+export const deleteUser = async (event) => {
   return {
     statusCode: 200,
     body: JSON.stringify({message: 'delete user'})
@@ -42,7 +40,7 @@ module.exports.deleteUser = async (event) => {
 }
 
 // PUT /users/:id
-module.exports.putUser = async (event) => {
+export const putUser = async (event) => {
   return {
     statusCode: 200,
     body: JSON.stringify({message: 'put user'})
