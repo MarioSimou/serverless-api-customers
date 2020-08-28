@@ -1,0 +1,17 @@
+{
+  "name": "serverlessAPI",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon -e .js,.yml ./node_modules/.bin/serverless offline start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "serverless": "^1.80.0",
+    "serverless-offline": "^6.7.0"
+  }
+}
