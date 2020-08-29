@@ -23,6 +23,19 @@ service: serverlessAPI
 provider:
   name: aws
   runtime: nodejs12.x
+  stage: dev
+  regions: us-east-1
+  timeout: 10
+  environment:
+    NODE_ENV: development
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+      - dynamodb:Query
+      - dynamodb:Scan
+      - dynamodb:GetItem
+      - dynamodb:PutItem
+      Resource: "*"
 
 # you can overwrite defaults here
 #  stage: dev
@@ -122,6 +135,22 @@ functions:
 #      variable2: value2
 
 # you can add CloudFormation resource templates here
+resources:
+  Resources:
+    usersTable:
+        Type: AWS::DynamoDB::Table
+        Properties:
+          TableName: usersTable
+          AttributeDefinitions:
+            - AttributeName: id
+              AttributeType: S
+          KeySchema:
+            - AttributeName: id
+              KeyType: HASH
+          ProvisionedThroughput:
+            ReadCapacityUnits: 1
+            WriteCapacityUnits: 1
+          
 #resources:
 #  Resources:
 #    NewResource:
